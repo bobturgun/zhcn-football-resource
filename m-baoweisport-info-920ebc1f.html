@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宝威体育 · 站点介绍</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f2f4f7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 24px 16px 48px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page {
+      max-width: 940px;
+      width: 100%;
+    }
+
+    /* hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03), 0 1px 4px rgba(0,0,0,0.04);
+      padding: 48px 32px 40px;
+      margin-bottom: 32px;
+      border: 1px solid #e6eaf0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #13294b;
+      margin-bottom: 14px;
+    }
+    .hero .subhead {
+      font-size: 1.1rem;
+      color: #4a5a72;
+      max-width: 620px;
+      margin: 0 auto 24px;
+      font-weight: 380;
+    }
+    .hero .desc {
+      background: #f6f9fe;
+      border-radius: 20px;
+      padding: 24px 22px;
+      border: 1px solid #dfe6f0;
+      font-size: 1rem;
+      color: #1e2f44;
+      text-align: left;
+      max-width: 720px;
+      margin: 0 auto 12px;
+    }
+    .hero .desc strong {
+      color: #1a4c7a;
+      font-weight: 500;
+    }
+
+    /* 卡片区通用 */
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px 24px 24px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+      border: 1px solid #e3e8ef;
+      flex: 1 1 260px;
+      transition: box-shadow 0.15s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 20px rgba(0,32,64,0.06);
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 480;
+      color: #1f3a5a;
+      margin-bottom: 12px;
+      border-left: 4px solid #7d9bc3;
+      padding-left: 14px;
+    }
+    .card p {
+      font-size: 0.96rem;
+      color: #2b3f57;
+      margin-bottom: 8px;
+    }
+    .card .tag {
+      display: inline-block;
+      background: #eef3fa;
+      color: #1f4970;
+      font-size: 0.78rem;
+      padding: 2px 12px;
+      border-radius: 24px;
+      margin-top: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    /* 说明区（更长叙述） */
+    .story-section {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 36px 32px 32px;
+      margin-bottom: 32px;
+      border: 1px solid #e0e7f0;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.02);
+    }
+    .story-section h2 {
+      font-weight: 440;
+      font-size: 1.7rem;
+      color: #1c3757;
+      margin-bottom: 18px;
+      letter-spacing: -0.3px;
+    }
+    .story-section p {
+      margin-bottom: 16px;
+      font-size: 1rem;
+      color: #233a53;
+    }
+    .story-section .meta-note {
+      background: #f1f5fc;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border-left: 4px solid #6f8db3;
+      font-size: 0.95rem;
+      color: #1f3c5a;
+      margin-top: 14px;
+    }
+
+    /* faq摘要 */
+    .faq-summary {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 28px 30px 30px;
+      margin-bottom: 32px;
+      border: 1px solid #e3eaf2;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.02);
+    }
+    .faq-summary h2 {
+      font-size: 1.5rem;
+      font-weight: 440;
+      color: #1f385b;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .faq-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #ecf0f7;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item .q {
+      font-weight: 480;
+      font-size: 1.02rem;
+      color: #132b45;
+      margin-bottom: 4px;
+    }
+    .faq-item .a {
+      font-size: 0.94rem;
+      color: #3b516c;
+      padding-left: 6px;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 22px 28px;
+      border: 1px solid #dfe5ef;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      margin-bottom: 16px;
+    }
+    .footer-links p {
+      color: #394f6b;
+      font-size: 0.96rem;
+    }
+    .footer-links a {
+      color: #1d4b7a;
+      text-decoration: none;
+      font-weight: 470;
+      border-bottom: 1px dotted #a6bedb;
+      transition: border-color 0.1s;
+    }
+    .footer-links a:hover {
+      border-bottom: 1px solid #1d4b7a;
+    }
+    .footer-note {
+      font-size: 0.78rem;
+      color: #647a95;
+      margin-top: 20px;
+      text-align: center;
+      letter-spacing: 0.2px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body { padding: 16px 12px 32px; }
+      .hero { padding: 32px 18px 28px; }
+      .hero h1 { font-size: 2rem; }
+      .card-grid { flex-direction: column; }
+      .story-section { padding: 26px 18px; }
+      .faq-summary { padding: 22px 18px; }
+      .footer-links { padding: 18px 18px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 区 -->
+  <div class="hero">
+    <h1>宝威体育 · 站点背景</h1>
+    <div class="subhead">一份关于内容来源与平台性质的简要说明</div>
+    <div class="desc">
+      <strong>宝威体育</strong> 是一个以体育资讯与赛事信息汇集为主的站点，
+      内容覆盖多个运动项目及动态报道。本站旨在为浏览者提供相对结构化的信息聚合，
+      并保持对来源的基本核实。页面内容经整理后呈现，不构成专业建议或绝对判断。
+    </div>
+    <div style="margin-top: 12px; font-size:0.9rem; color:#4e6b89;">
+      如果您希望直接访问主站，可以前往 <a href="https://m-baoweisport.com" style="color:#1d4b7a; text-decoration:underline; font-weight:480;">宝威体育</a> 了解更多。
+    </div>
+  </div>
+
+  <!-- 优势区（卡片） -->
+  <div class="card-grid">
+    <div class="card">
+      <h3>信息来源</h3>
+      <p>内容整合自公开赛事数据与动态报道，尽量标注参考节点。不夸大原始出处，也不伪造摘要。</p>
+      <span class="tag">可溯源性</span>
+    </div>
+    <div class="card">
+      <h3>版面风格</h3>
+      <p>以阅读舒适为出发点，采用低对比度配色与卡片式分区，减少视觉干扰，适合长时间浏览。</p>
+      <span class="tag">简洁优先</span>
+    </div>
+    <div class="card">
+      <h3>更新节奏</h3>
+      <p>根据赛事周期与资讯变动做阶段性刷新，不追求实时推送，更注重内容的基本准确性。</p>
+      <span class="tag">周期更新</span>
+    </div>
+  </div>
+
+  <!-- 说明区：站点介绍与可信说明 -->
+  <div class="story-section">
+    <h2>关于这个站 · 一点叙述</h2>
+    <p>
+      在信息流动快速的今天，一个体育站点往往承载着比结果更多的角色——它可以是赛程的参考，
+      也可以是不同视角的集合。<strong>宝威体育</strong> 选择了一种相对克制的做法：
+      不刻意渲染情绪，不堆叠夸张标题，而是以“可读、可查、可参考”作为基本的整理逻辑。
+      每个页面的内容都经过筛选和排列，尽量保留原始的客观语调。
+    </p>
+    <p>
+      从站点结构来看，这里并没有复杂的推荐算法，也不依赖诱导点击的设计。
+      浏览者可以按需要查阅赛事摘要、回顾或基本数据。网站本身不提供博彩、投注或任何形式的
+      即时下注接口，也不接受涉及违法信息的投稿与嵌入。运营团队在内容审核上保持常规的核实流程，
+      但不对第三方引用的绝对准确性作出超出合理范围的承诺。
+    </p>
+    <div class="meta-note">
+      📌 可信说明：本站所有公开内容均来自可查证的体育赛事公开报道或官方统计数据。
+      不存在虚构赛果、伪造数据或隐藏赞助关系的情况。如果发现任何页面存在事实偏差，
+      可以通过站点提供的联系方式反馈，我们会在核实后做修正或标注。
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 (四条) -->
+  <div class="faq-summary">
+    <h2>❓ 常见疑问摘要</h2>
+    <div class="faq-item">
+      <div class="q">⚬ 宝威体育 是否提供直播或比分推送？</div>
+      <div class="a">本网站主要汇总赛事信息与背景资料，不提供实时直播流或滚动比分推送。部分页面可能包含赛程时间表，仅供参考。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">⚬ 内容会不会偏向特定球队或赞助商？</div>
+      <div class="a">内容选取尽量基于公开赛事数据，不刻意突出某一方。所有赞助信息或合作标识都会明确标注，不隐藏利益关系。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">⚬ 网站是否收集个人浏览数据？</div>
+      <div class="a">本网站不主动追踪个人身份信息，不使用第三方广告追踪脚本。服务器日志仅用于基础运维，不用于用户画像。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">⚬ 链接到外部网站时是否有筛选？</div>
+      <div class="a">外部链接（包括指向 宝威体育 主站的链接）在发布前会进行可用性检查，但不对链接站点的后续内容变更负责。</div>
+    </div>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <p>
+      如需进一步了解网站内容，可随时进入 <a href="https://m-baoweisport.com">宝威体育</a>。
+      本页面仅作为介绍性落地页，不替代主站功能。
+    </p>
+  </div>
+  <div class="footer-note">
+    宝威体育 · 信息说明页 &nbsp;|&nbsp; 保持简洁与可参考性
+  </div>
+</div>
+</body>
+</html>
