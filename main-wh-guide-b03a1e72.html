@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>威廉希尔 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f0f6f9;
+      color: #1a2f3b;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* 主视觉——网格卡片式头部 */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .hero-main {
+      background: linear-gradient(145deg, #d9eeef 0%, #b4d6db 100%);
+      border-radius: 32px;
+      padding: 2rem 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-main h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #134a56;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-main p {
+      font-size: 1.1rem;
+      color: #1f4b58;
+      max-width: 90%;
+    }
+
+    .hero-callout {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 1.8rem 1.8rem 2rem;
+      box-shadow: 0 8px 20px rgba(20, 90, 100, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-callout .tag {
+      display: inline-block;
+      background: #b1d6dd;
+      color: #07424f;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    .hero-callout h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #12434f;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-callout p {
+      color: #2f555f;
+      font-size: 0.95rem;
+    }
+
+    /* 卡片网格 (用途 + 人群) */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem 2rem;
+      transition: 0.2s ease;
+      border: 1px solid #dbedf0;
+      box-shadow: 0 4px 10px rgba(17, 72, 80, 0.03);
+    }
+
+    .card:hover {
+      border-color: #a2cdd4;
+      box-shadow: 0 10px 24px rgba(18, 95, 105, 0.04);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+      background: #d7edf0;
+      padding: 0.3rem 0.6rem;
+      border-radius: 60px;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #144d5a;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.2px;
+    }
+
+    .card p {
+      color: #2b555f;
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      position: relative;
+      padding-left: 1.3rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+      color: #1b4f5a;
+    }
+
+    .card li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #479caa;
+    }
+
+    /* 自然链接段落 (介绍与可信说明) */
+    .story {
+      background: white;
+      border-radius: 32px;
+      padding: 2rem 2.2rem 2.4rem;
+      margin-bottom: 3rem;
+      border: 1px solid #d1e6ea;
+      box-shadow: 0 6px 14px rgba(0, 45, 55, 0.03);
+    }
+
+    .story h2 {
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: #0a404d;
+      margin-bottom: 1rem;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      margin-bottom: 1.2rem;
+      color: #1e4550;
+    }
+
+    .story .link-sentence {
+      background: #e7f3f6;
+      padding: 1rem 1.3rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin: 0.3rem 0 0.8rem;
+    }
+
+    .story a {
+      color: #115e6b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #9ecbd3;
+      transition: 0.1s;
+    }
+
+    .story a:hover {
+      border-bottom-color: #246c7a;
+      background: #def0f3;
+    }
+
+    /* FAQ 摘要——精简卡片 */
+    .faq-brief {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    .faq-item {
+      background: #f3fafc;
+      border-radius: 24px;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid #cbe2e7;
+    }
+
+    .faq-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #16525f;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-item p {
+      font-size: 0.9rem;
+      color: #2b5a64;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      text-align: center;
+      margin-top: 2.8rem;
+      font-size: 0.85rem;
+      color: #497b86;
+      border-top: 1px solid #d2e6eb;
+      padding-top: 1.5rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 740px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main h1 {
+        font-size: 2rem;
+      }
+
+      .hero-callout h2 {
+        font-size: 1.3rem;
+      }
+
+      .story {
+        padding: 1.8rem 1.5rem;
+      }
+
+      .story .link-sentence {
+        display: block;
+        border-radius: 28px;
+        text-align: center;
+      }
+
+      .faq-brief {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .hero-main {
+        padding: 1.8rem 1.2rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero -->
+  <div class="hero">
+    <div class="hero-main">
+      <h1>威廉希尔<br>· 信息卡片</h1>
+      <p>围绕站点介绍与可信背景展开，以简洁的卡片网格呈现主要用途、适合人群及服务视角。</p>
+    </div>
+    <div class="hero-callout">
+      <span class="tag">站点定位</span>
+      <h2>可信说明与场景</h2>
+      <p>从使用意图、信息呈现到用户适配，力求自然克制的叙述结构。</p>
+    </div>
+  </div>
+
+  <!-- 用途卡片 + 适合人群 (混合卡片) -->
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h3>用途概览</h3>
+      <p>信息参考、内容索引、服务引导——站点本身提供清晰的功能分区，方便用户快速理解。</p>
+      <ul>
+        <li>结构与导航说明</li>
+        <li>内容聚合与分类</li>
+        <li>基本使用指引</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">👥</div>
+      <h3>适合人群</h3>
+      <p>对线上信息有查阅需求的普通用户、关注内容完整性的浏览者，以及希望了解站点背景的新访客。</p>
+      <ul>
+        <li>初次接触的新用户</li>
+        <li>需要确认信息来源的人</li>
+        <li>偏好卡片化阅读的访客</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>可信角度</h3>
+      <p>页面以客观介绍为主，不夸大、不引导，仅展示站点本身所呈现的内容范畴与基础结构。</p>
+      <ul>
+        <li>陈述而非承诺</li>
+        <li>透明化信息层次</li>
+        <li>去诱导化表述</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 自然链接段落 + 介绍性叙述 -->
+  <div class="story">
+    <h2>关于本站 · 叙述与说明</h2>
+    <p>
+      很多用户在第一次接触一个站点时，往往更关心它提供什么、信息是否清晰。这个页面正是从这样一个角度出发：不堆砌修饰，而是把站点的基本用途、结构特点以及可能的适用场景用卡片形式整理出来。
+    </p>
+    <p>
+      以 <a href="https://main-wh.com">威廉希尔</a> 作为主要识别名称，站点围绕内容索引与功能引导展开。对于想要快速了解布局或服务范畴的人，卡片网格提供了一种低负担的浏览方式。没有多余的跳转诱导，每个模块都尽量保持平实。
+    </p>
+    <p>
+      同时，我们也在这里简要说明可信层面的考量——页面中所有信息均基于站点本身的公开呈现，不添加未经证实的主张，也不使用模糊的承诺性措辞。如果你正在寻找一个结构清晰、叙述克制的介绍页，那么这个页面或许能提供一个参考。
+    </p>
+    <div class="link-sentence">
+      💡 了解更多背景，可查看 <a href="https://main-wh.com">威廉希尔</a> 站点内容。
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 (精简卡片) -->
+  <div class="faq-brief">
+    <div class="faq-item">
+      <h4>❓ 这个页面是官网吗？</h4>
+      <p>不是。这是一个围绕站点信息整理而成的介绍页，用于展示内容结构与用途。</p>
+    </div>
+    <div class="faq-item">
+      <h4>📌 卡片中的用途是否全面？</h4>
+      <p>仅提炼了主要方向，更完整的信息建议直接参考站点本身。</p>
+    </div>
+    <div class="faq-item">
+      <h4>🔒 为什么强调“可信说明”？</h4>
+      <p>我们希望用克制的语气呈现内容，避免夸大或误导，保持信息透明。</p>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    威廉希尔 · 站点介绍页 &nbsp;|&nbsp; 卡片化呈现 · 客观叙述
+  </div>
+
+</div>
+</body>
+</html>
